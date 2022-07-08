@@ -1,6 +1,6 @@
 <template>
-  <h1>{{ title }}</h1>
-  <Modal />
+  <h1 class="nino">{{ title }}</h1>
+  <Modal :header="header" :text="text" theme="sale" />
 </template>
 
 <script>
@@ -12,6 +12,8 @@ export default {
   data() {
     return {
       title: "My first Vue Project",
+      header: "Sign up for the GiveAway!",
+      text: "Grab your Ninja Swag today!",
     };
   },
 
@@ -20,7 +22,6 @@ export default {
 </script>
 
 <style>
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,7 +31,7 @@ export default {
   margin-top: 60px;
 }
 
-h1 {
+.nino {
   border-bottom: 1px solid grey;
   display: inline-block;
   padding-bottom: 10px;
