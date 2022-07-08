@@ -1,31 +1,26 @@
 <template>
   <h1>{{ title }}</h1>
-  <input type="text" ref="luigino" />
-  <button @click="handleClick">Click Me</button>
+  <Modal />
 </template>
 
 <script>
+import Modal from "./components/Modal.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: { Modal },
   data() {
     return {
       title: "My first Vue Project",
     };
   },
 
-  methods: {
-    handleClick() {
-      console.log(this.$refs.luigino);
-      this.$refs.luigino.classList.add("active");
-      this.$refs.luigino.focus();
-      // "Refs" are used in Vue instead of querySelector in order to select and manipulate an element from the DOM.
-    },
-  },
+  methods: {},
 };
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
