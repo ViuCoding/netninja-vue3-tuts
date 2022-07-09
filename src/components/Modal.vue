@@ -1,16 +1,18 @@
 <template>
-<!-- @click.self allows us to close the modal ONLY if we click on the element itself and not on anything inside of it -->
+  <!-- @click.self allows us to close the modal ONLY if we click on the element itself and not on anything inside of it -->
   <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
-      <h1>{{ header }}</h1>
-      <p>{{ text }}</p>
+      <slot>Default Content </slot>
+      <div class="actions">
+        <slot name="links"> </slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["header", "text", "theme"],
+  props: ["theme"],
   methods: {
     closeModal() {
       this.$emit("close");
@@ -43,6 +45,21 @@ export default {
 
 .modal.sale h1 {
   color: aqua;
-  margin-bottom: 2rem;
+}
+
+.modal .actions{
+  text-align: center;
+  margin: 30px 0 10px 0;
+  color: #333;
+
+}
+.modal .actions a{
+  margin: 10px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+
 }
 </style>
