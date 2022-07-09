@@ -1,5 +1,6 @@
 <template>
-  <div class="backdrop" @click="closeModal">
+<!-- @click.self allows us to close the modal ONLY if we click on the element itself and not on anything inside of it -->
+  <div class="backdrop" @click.self="closeModal">
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>{{ header }}</h1>
       <p>{{ text }}</p>
