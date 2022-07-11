@@ -1,7 +1,7 @@
 <template>
   <h1 class="nino">{{ title }}</h1>
   <p>Welcome...</p>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal theme="sale" @close="toggleModal">
       <template v-slot:links>
         <a href="#">Sign Up now!!</a>
@@ -11,7 +11,7 @@
       <h1>{{ header }}</h1>
       <p>Grab your Ninja Swag today!</p>
     </Modal>
-  </div>
+  </teleport>
   <button @click="toggleModal">Open Modal</button>
 </template>
 
@@ -39,7 +39,8 @@ export default {
 </script>
 
 <style>
-#app {
+#app,
+.modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
